@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cream: #F3ECE0;
+    --color-sand: #D9C3A5;
+    --color-orange: #F26A1B;
+    --color-neutral-dark: #2C221E;
+    --color-neutral-body: #5A4D45;
+  }
+
+  body {
+    background-color: #F3ECE0;
+    color: #2C221E;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar matching brand palette */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F3ECE0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D9C3A5;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C8AC89;
+  }
+}

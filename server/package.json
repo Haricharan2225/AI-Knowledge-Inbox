@@ -1,0 +1,37 @@
+{
+  "name": "ai-knowledge-inbox-server",
+  "version": "1.0.0",
+  "description": "Backend API for AI Knowledge Inbox with SQLite and RAG pipeline",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node src/tests/phase2_test.js && node src/tests/phase3_test.js && node src/tests/phase4_test.js && node src/tests/stage2_test.js",
+    "test:phase2": "node src/tests/phase2_test.js",
+    "test:phase3": "node src/tests/phase3_test.js",
+    "test:phase4": "node src/tests/phase4_test.js",
+    "test:stage2": "node src/tests/stage2_test.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "cheerio": "^1.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.7.4",
+    "winston": "^3.17.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "keywords": [
+    "express",
+    "better-sqlite3",
+    "rag",
+    "winston"
+  ],
+  "author": "",
+  "license": "ISC"
+}

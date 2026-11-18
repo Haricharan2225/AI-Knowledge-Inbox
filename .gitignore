@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+.pnp
+.pnp.js
+
+# Environment variables & secrets (CRITICAL: Never commit credentials)
+.env
+.env.*
+server/.env
+server/.env.*
+client/.env
+client/.env.*
+*.env
+*.env.local
+!.env.example
+!server/.env.example
+!client/.env.example
+
+# Database files
+server/data/*.db
+server/data/*.db-journal
+server/data/*.db-wal
+server/data/*.db-shm
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Operational & System Logs
+server/logs/*.log
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production / Build output
+client/dist/
+dist/
+build/
+.vercel
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
