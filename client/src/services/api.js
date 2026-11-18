@@ -40,7 +40,12 @@ async function request(endpoint, options = {}) {
     return data;
   } catch (err) {
     if (err.name === 'TypeError' && err.message.includes('fetch')) {
-      throw new Error('Unable to connect to the backend server. Is it running on port 5000?');
+      const isLocal = !RAW_BASE.startsWith('http');
+      throw new Error(
+        isLocal
+          ? 'Unable to connect to the backend server. Is it running on port 5000?'
+          : 'Unable to connect to the backend server. The service may be waking up (Render cold start) or unreachable.'
+      );
     }
     throw err;
   }

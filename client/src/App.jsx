@@ -16,14 +16,14 @@ export default function App() {
 
   // Poll or fetch system health
   const checkHealth = async () => {
-    setIsRefreshing(true);
     try {
       const data = await api.getHealth();
       setHealth(data);
+      return data;
     } catch (err) {
       console.warn('Health check warning:', err.message);
-    } finally {
-      setIsRefreshing(false);
+      setHealth({ status: 'offline' });
+      return null;
     }
   };
 
@@ -31,9 +31,19 @@ export default function App() {
     checkHealth();
   }, []);
 
-  const triggerGlobalRefresh = () => {
-    checkHealth();
-    setRefreshCounter((prev) => prev + 1);
+  const triggerGlobalRefresh = async () => {
+    setIsRefreshing(true);
+    try {
+      await Promise.all([
+        checkHealth(),
+        new Promise((resolve) => setTimeout(resolve, 500)), // Ensure tangible 500ms micro-interaction
+      ]);
+      setRefreshCounter((prev) => prev + 1);
+    } catch (err) {
+      console.warn('Global refresh error:', err.message);
+    } finally {
+      setIsRefreshing(false);
+    }
   };
 
   const handleIngestionSuccess = () => {
